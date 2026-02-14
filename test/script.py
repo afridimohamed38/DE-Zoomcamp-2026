@@ -18,4 +18,3 @@ for filepath in current_dir.iterdir():
     if filepath.is_file():
         content = filepath.read_text(encoding='utf-8')
         print(f"    content: {content}")
-
