@@ -1,0 +1,29 @@
+Volume mapping means docker container reading data from host machine
+
+>pwd
+/workspaces/DE-Zoomcamp-2026/Docker/test
+
+-- Inside container
+
+> docker run -it --entrypoint=bash -v $(pwd):/app/test python:3.13.11-slim
+
+root@105b7be2522a:/# ls
+app  bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@105b7be2522a:/# cd app/
+root@105b7be2522a:/app# ls
+test
+root@105b7be2522a:/app# cd test
+root@105b7be2522a:/app/test# ls
+file1.txt  file2.txt  file3.txt  script.py
+root@105b7be2522a:/app/test# python3 script.py 
+Files in /app/test:
+ - file1.txt
+    content: Hello from host
+
+ - file2.txt
+    content: 
+ - file3.txt
+    content: 
+root@105b7be2522a:/app/test# 
+root@105b7be2522a:/app/test# exit
+exit
